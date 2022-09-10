@@ -1,6 +1,6 @@
 import { GrPlayFill } from "react-icons/gr";
 
-const Button = (title: string) => {
+const Button = (title: any) => {
 	return (
 		<button className="play">
 			<GrPlayFill size={28} />
