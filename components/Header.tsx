@@ -48,9 +48,8 @@ const Header: React.FC = () => {
 					</ul>
 				</div>
 				<div className="header__second-menu">
-					<button className="header__btn">
-						<GoSearch size={20} />
-					</button>
+					{/* <div className="header__btn"></div> */}
+					<GoSearch size={20} />
 					<GoBell size={20} />
 					<div className="header__profile">
 						<div className="header__account"></div>

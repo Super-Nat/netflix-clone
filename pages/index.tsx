@@ -1,8 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Banner from "../components/Banner";
 import Header from "../components/Header";
+import requests from "../utils/requests";
 
-const Home: NextPage = () => {
+const Home: NextPage = ({ trendingNow }) => {
 	return (
 		<>
 			<Head>
@@ -14,7 +16,7 @@ const Home: NextPage = () => {
 			<Header />
 
 			<main>
-				{/* Banner */}
+				<Banner trendingNow={trendingNow} />
 				<section>
 					{/* Row */}
 					{/* Row */}
@@ -32,3 +34,15 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export const getServerSideProps = async () => {
+	const trendingNow = await fetch(requests.fetchTrending).then((res) =>
+		res.json()
+	);
+
+	return {
+		props: {
+			trendingNow: trendingNow.results,
+		},
+	};
+};
