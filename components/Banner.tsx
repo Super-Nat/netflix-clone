@@ -5,7 +5,7 @@ import { BiPlus, BiInfoCircle } from "react-icons/bi";
 import Button from "./Button";
 
 const Banner: React.FC = ({ trendingNow }: any) => {
-	const [movie, setMovie] = useState(null);
+	const [movie, setMovie] = useState<any>(null);
 	useEffect(() => {
 		setMovie(trendingNow[Math.floor(Math.random() * trendingNow.length)]);
 	}, [trendingNow]);
