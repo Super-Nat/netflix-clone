@@ -1,10 +1,14 @@
 import { GrPlayFill } from "react-icons/gr";
 
-const Button = (title: any) => {
+interface Props {
+	title: string;
+}
+
+const Button: React.FC<Props> = (props) => {
 	return (
 		<button className="play">
 			<GrPlayFill size={28} />
-			{title}
+			{props.title}
 		</button>
 	);
 };

@@ -4,11 +4,17 @@ import { baseUrl } from "../constants/movie";
 import { BiPlus, BiInfoCircle } from "react-icons/bi";
 import Button from "./Button";
 
-const Banner: React.FC = ({ trendingNow }: any) => {
+interface Props {
+	trendingNow: [];
+}
+
+const Banner: React.FC<Props> = (props) => {
 	const [movie, setMovie] = useState<any>(null);
 	useEffect(() => {
-		setMovie(trendingNow[Math.floor(Math.random() * trendingNow.length)]);
-	}, [trendingNow]);
+		setMovie(
+			props.trendingNow[Math.floor(Math.random() * props.trendingNow.length)]
+		);
+	}, [props.trendingNow]);
 
 	console.log(movie);
 	return (
@@ -21,6 +27,7 @@ const Banner: React.FC = ({ trendingNow }: any) => {
 					objectFit="cover"
 				/>
 				<div className="banner__backdrop"></div>
+				<div className="banner__backdrop--bot"></div>
 				<div className="banner__content">
 					<h1>{movie?.name || movie?.title}</h1>
 					<p>{movie?.overview}</p>
